@@ -1,32 +1,47 @@
 # TwinCast
 
-> Clone yourself on video.
+Clone yourself on video. Record once. Speak any script, in any language, on every platform. Made for creators, priced for creators.
 
-Record once. Speak any script, in any language, on every platform. Made for creators, priced for creators.
+**Status:** v0 skeleton — landing page + one selfie-to-video mock route. Full rendering not yet wired.
 
-## What it does
+**Landing:** https://twincast.vercel.app
 
-- **Five-minute clone** — Record five minutes. Get an avatar that sounds and moves exactly like you.
-- **40 plus languages** — Ship the same video to every corner of the internet, lip-synced and on-brand.
-- **Creator pricing** — Flat monthly plans built for TikTok and Instagram, not Fortune 500s.
+---
 
-## Why
+## Stack
 
-Creator tools. Part of a 20-product exploration of high-demand consumer and SMB markets.
+| Layer | Choice |
+|---|---|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript (strict) |
+| Styling | Tailwind v4 |
+| Fonts | Inter via `next/font/google` |
+| Hosting | Vercel (zero config) |
+| Waitlist | https://waitlist-api-sigma.vercel.app |
 
-## Status
+## Run locally
 
-Landing page live. Product in planning.
+```bash
+pnpm install
+pnpm dev
+```
 
-- **Live**: https://mukundakatta.github.io/twincast/
+Open http://localhost:3000.
 
-## Stack (when built)
+## Deploy
 
-- Next.js 16 (App Router)
-- Supabase for auth + data
-- Stripe for payments
-- Deployed on Vercel
+Push to `main` — Vercel picks it up automatically. No environment variables required.
 
-## Local preview
+## Routes
 
-Just open `index.html` in a browser — it is a static landing page with the Tailwind CDN.
+| Route | Description |
+|---|---|
+| `/` | Landing page (original copy + design preserved) |
+| `/try` | v0 selfie + script upload — mocked video rendering with progress bar |
+| `/api/waitlist` | `POST { email }` → forwards to waitlist-api-sigma |
+
+## What's next
+
+- Wire real video generation (avatar cloning + lip-sync)
+- Multi-language output selection
+- Auth + per-user project history
